@@ -1,6 +1,17 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^9.6"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./libs/APIMATICCalculator-php",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
+    "require": {
+        "apimatic-sdks/apimaticcalculator": "*"
     }
  }
- 
