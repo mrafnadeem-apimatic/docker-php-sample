@@ -22,8 +22,9 @@ COPY . .
 # Leverage a bind mounts to composer.json and composer.lock to avoid having to copy them
 # into this layer.
 # Leverage a cache mount to /tmp/cache so that subsequent builds don't have to re-download packages.
-RUN --mount=type=cache,target=/tmp/cache \
-    composer update --no-dev --no-interaction \
+RUN --mount=type=bind,source=composer.json,target=composer.json \
+    --mount=type=bind,source=composer.lock,target=composer.lock \
+    --mount=type=cache,target=/tmp/cache \
     composer install --no-dev --no-interaction
 
 ################################################################################
