@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace APIMATICCalculatorLib\Utils;
 
 use APIMATICCalculatorLib\Exceptions\ApiException;
+use APIMATICCalculatorLib\Http\ApiResponse;
 use APIMATICCalculatorLib\Http\HttpContext;
 use APIMATICCalculatorLib\Http\HttpRequest;
 use APIMATICCalculatorLib\Http\HttpResponse;
@@ -53,9 +54,13 @@ class CompatibilityConverter implements ConverterInterface
         return new HttpResponse($response->getStatusCode(), $response->getHeaders(), $response->getRawBody());
     }
 
-    public function createApiResponse(ContextInterface $context, $deserializedBody)
+    public function createApiResponse(ContextInterface $context, $deserializedBody): ApiResponse
     {
-        return null;
+        return ApiResponse::createFromContext(
+            $context->getResponse()->getBody(),
+            $deserializedBody,
+            $this->createHttpContext($context)
+        );
     }
 
     public function createFileWrapper(string $realFilePath, ?string $mimeType, ?string $filename)

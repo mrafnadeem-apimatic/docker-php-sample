@@ -14,7 +14,6 @@ use Core\ApiCall;
 use Core\Client;
 use Core\Request\RequestBuilder;
 use Core\Response\ResponseHandler;
-use APIMATICCalculatorLib\Exceptions\ApiException;
 
 /**
  * Base controller
@@ -33,9 +32,6 @@ class BaseController
         $this->client = $client;
     }
 
-    /**
-     * @throws ApiException Thrown if API call fails
-     */
     protected function execute(RequestBuilder $requestBuilder, ?ResponseHandler $responseHandler = null)
     {
         return (new ApiCall($this->client))

@@ -133,6 +133,14 @@ $client = APIMATICCalculatorClientBuilder::init()
     ->build();
 ```
 
+API calls return an `ApiResponse` object that includes the following fields:
+
+| Field | Description |
+|  --- | --- |
+| `getStatusCode` | Status code of the HTTP response |
+| `getHeaders` | Headers of the HTTP response as a Hash |
+| `getResult` | The deserialized body of the HTTP response as a String |
+
 ## List of APIs
 
 * [Simple Calculator](doc/controllers/simple-calculator.md)

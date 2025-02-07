@@ -14,7 +14,7 @@ $simpleCalculatorController = $client->getSimpleCalculatorController();
 Calculates the expression using the specified operation.
 
 ```php
-function getCalculate(array $options): float
+function getCalculate(array $options): ApiResponse
 ```
 
 ## Parameters
@@ -27,7 +27,7 @@ function getCalculate(array $options): float
 
 ## Response Type
 
-`float`
+This method returns a `APIMATICCalculatorLib\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type `float`.
 
 ## Example Usage
 
@@ -38,6 +38,6 @@ $collect = [
     'y' => 165.14
 ];
 
-$result = $simpleCalculatorController->getCalculate($collect);
+$apiResponse = $simpleCalculatorController->getCalculate($collect);
 ```
 

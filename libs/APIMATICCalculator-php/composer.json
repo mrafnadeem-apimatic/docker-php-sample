@@ -1,7 +1,6 @@
 {
     "name": "apimatic-sdks/apimaticcalculator",
     "description": "Simple calculator API hosted on APIMATIC. Use [Calculate]($e/Simple%20Calculator/Calculate) endpoint.",
-    "version": "1.0.0",
     "type": "library",
     "keywords": [
         "APIMATIC Calculator",

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace APIMATICCalculatorLib\Controllers;
 
-use APIMATICCalculatorLib\Exceptions\ApiException;
+use APIMATICCalculatorLib\Http\ApiResponse;
 use APIMATICCalculatorLib\Models\OperationTypeEnum;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
@@ -23,11 +23,9 @@ class SimpleCalculatorController extends BaseController
      *
      * @param array $options Array with all options for search
      *
-     * @return float Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
+     * @return ApiResponse Response from the API call
      */
-    public function getCalculate(array $options): float
+    public function getCalculate(array $options): ApiResponse
     {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/{operation}')
             ->parameters(
@@ -38,6 +36,8 @@ class SimpleCalculatorController extends BaseController
                 QueryParam::init('y', $options)->extract('y')
             );
 
-        return $this->execute($_reqBuilder);
+        $_resHandler = $this->responseHandler()->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

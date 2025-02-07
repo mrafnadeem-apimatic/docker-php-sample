@@ -42,7 +42,7 @@ class SimpleCalculatorControllerTest extends BaseTestController
         // Perform API call
         $result = null;
         try {
-            $result = self::$controller->getCalculate($input);
+            $result = self::$controller->getCalculate($input)->getResult();
         } catch (Exceptions\ApiException $e) {
         }
 
