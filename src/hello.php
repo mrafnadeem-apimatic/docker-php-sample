@@ -4,7 +4,6 @@ require_once "vendor/autoload.php";
 
 use APIMATICCalculatorLib\APIMATICCalculatorClientBuilder;
 use APIMATICCalculatorLib\Models\OperationTypeEnum;
-use APIMATICCalculatorLib\Exceptions\ApiException;
 use APIMATICCalculatorLib\Environment;
 
 $collect = [
@@ -17,9 +16,16 @@ $client = APIMATICCalculatorClientBuilder::init()
     ->environment(Environment::PRODUCTION)
     ->build();
 
-try {
-    $result = $client->getSimpleCalculatorController()->getCalculate($collect);
-    var_dump($result);
-} catch (ApiException $exp) {
-    echo "Caught $exp";
+$apiResponse = $client->getSimpleCalculatorController()->getCalculate($collect);
+
+if ($apiResponse->isSuccess()) {
+    $data = $apiResponse->getResult();
+    var_dump($data);
+} else {
+    $errors = $apiResponse->getResult();
+    var_dump($errors);
 }
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
