@@ -9,9 +9,18 @@
             "options": {
                 "symlink": false
             }
+        },
+        {
+            "type": "path",
+            "url": "./libs/PayPalRESTAPIs",
+            "options": {
+                "symlink": false
+            }
         }
     ],
     "require": {
-        "apimatic-sdks/apimaticcalculator": "*"
-    }
+        "apimatic-sdks/apimaticcalculator": "*",
+        "apimatic-sdks/paypalrestapis": "*"
+    },
+    "minimum-stability": "dev"
  }

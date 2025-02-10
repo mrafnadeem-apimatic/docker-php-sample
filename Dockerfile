@@ -25,6 +25,7 @@ COPY . .
 RUN --mount=type=bind,source=composer.json,target=composer.json \
     --mount=type=bind,source=composer.lock,target=composer.lock \
     --mount=type=cache,target=/tmp/cache \
+    composer update --no-dev --no-interaction \
     composer install --no-dev --no-interaction
 
 ################################################################################
