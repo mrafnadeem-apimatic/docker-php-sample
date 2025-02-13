@@ -12,6 +12,13 @@
         },
         {
             "type": "path",
+            "url": "./libs/APIMATICCalculatorByClient",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
             "url": "./libs/PayPalRESTAPIs",
             "options": {
                 "symlink": false
@@ -20,6 +27,7 @@
     ],
     "require": {
         "apimatic-sdks/apimaticcalculator": "*",
+        "apimatic-sdks/apimaticcalculatorbyclient": "*",
         "apimatic-sdks/paypalrestapis": "*"
     },
     "minimum-stability": "dev"
