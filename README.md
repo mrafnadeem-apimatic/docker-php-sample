@@ -17,3 +17,5 @@ When you're ready, start your application by running:
 `docker compose up --build`.
 
 Your application will be available at http://localhost:9000.
+
+For example, you can open http://localhost:9000/hello.php to see `src/hello.php` output.
