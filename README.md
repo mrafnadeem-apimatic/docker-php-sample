@@ -4,6 +4,8 @@ A simple PHP web application example made using [Docker's PHP Language Guide](ht
 
 ### Building and running your application
 
+Make sure docker is running.
+
 Run this command to install dependencies:
 `docker run --rm -v .://app -it composer:lts update`
 
