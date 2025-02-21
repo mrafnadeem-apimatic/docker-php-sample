@@ -4,18 +4,18 @@ A simple PHP web application example made using [Docker's PHP Language Guide](ht
 
 ### Building and running your application
 
-Make sure docker is running.
+1. Install [Docker for Windows](https://docs.docker.com/desktop/setup/install/windows-install/).
 
-Run this command to install dependencies:
-`docker run --rm -v .://app -it composer:lts update`
+2. Make sure docker is running.
 
-This will install dependencies in your `.vendor/` folder.
+3. Run this command to install dependencies: `docker run --rm -v .://app -it composer:lts update`
 
-To add more dependencies or SDKs, you can add them in the `libs/` folder and update the composer.json file accordingly. Then run composer update again as mentioned above.
+    This will install dependencies in your `.vendor/` folder.
 
-When you're ready, start your application by running:
-`docker compose up --build`.
+    To add more dependencies or SDKs, you can add them in the `libs/` folder and update the composer.json file accordingly. Then run composer update again as mentioned above.
 
-Your application will be available at http://localhost:9000.
+4. When you're ready, start your application by running: `docker compose up --build`.
 
-For example, you can open http://localhost:9000/hello.php to see `src/hello.php` output.
+   Your application will be available at http://localhost:9000.
+
+   For example, you can open http://localhost:9000/hello.php to see `src/hello.php` output.
